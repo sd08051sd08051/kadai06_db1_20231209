@@ -10,7 +10,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $title  = $_POST['title'];
     $content = $_POST['content'];
     $important = $_POST['important'];
-    
+
     // セキュリティー対策として、プレースホルダーを使用したPDOの準備された文を使用
     $stmt = $pdo->prepare("INSERT INTO notes (title, content, important) VALUES (?, ?, ?)");
     $stmt->bindParam(1, $title, PDO::PARAM_STR);
@@ -51,23 +51,23 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Notes App</title>
+        <title>待ち時間、支払い意向確認</title>
         <link rel="stylesheet" href="styles/style.css">
     </head>
     <header>
-                Notes App
+               待ち時間、支払い意向確認
     </header>
 
     <div class="titleDiv">
             <div class="backLink"><a class="nav-link" href="index.php"> Home</a></div>
-            <div class="head">New Note</div>
+            <div class="head">アンケート</div>
     </div>
     <form action="new.php" method="post">     
 
-            <span class="label">Title</span>
+            <span class="label">限界待ち時間</span>
             <input type="text" name="title" />
             
-            <span class="label">Content</span>
+            <span class="label">限界待ち時間を解消するために支払える価格</span>
             <textarea name="content"> </textarea>
 
             <div class="chkgroup">
